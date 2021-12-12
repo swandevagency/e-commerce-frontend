@@ -1,5 +1,7 @@
 <template>
   <div>
+    <DesktopHeader class="desktop-header" />
+    <PhoneHeader class="phone-header" />
     <div class="home-page-wrapper">
       <section class="home-page-intro-wrapper">
         <h6 class="home-page-intro">Start shopping with confidence</h6>
@@ -23,6 +25,7 @@
         <SiteOffer />
       </section>
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -31,12 +34,16 @@ export default {}
 </script>
 
 <style>
+.desktop-header {
+  display: none;
+}
 .home-page-wrapper {
   padding: 35px;
   background-color: #e2c7c7;
 }
 .home-page-intro-wrapper {
   text-align: center;
+  margin-top: 60px;
 }
 .home-page-intro {
   font-weight: 300;
@@ -68,7 +75,17 @@ export default {}
 .home-page-offers-wrapper {
   margin-top: 35px;
 }
+
 @media only screen and (min-width: 992px) {
+  .home-page-intro-wrapper {
+    margin-top: 0;
+  }
+  .desktop-header {
+    display: initial;
+  }
+  .phone-header {
+    display: none;
+  }
   .home-page-wrapper {
     padding: 60px;
   }
