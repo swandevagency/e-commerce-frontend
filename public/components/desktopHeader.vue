@@ -1,12 +1,12 @@
 <template>
   <div>
     <div class="header-wrapper">
-      <a href="#">Shop</a>
+      <NuxtLink to="/">Shop</NuxtLink>
       <div class="pages-link-wrapper">
-        <a href="#">Home</a>
-        <a href="#">Men</a>
-        <a href="#">Women</a>
-        <a href="#">Kids</a>
+        <NuxtLink to="/">Home</NuxtLink>
+        <NuxtLink to="/Men">Men</NuxtLink>
+        <NuxtLink to="/Women">Women</NuxtLink>
+        <NuxtLink to="/Kids">Kids</NuxtLink>
       </div>
       <div class="svgs-wrapper">
         <svg
@@ -79,7 +79,7 @@ a {
   font-size: 1.1em;
 }
 .header-wrapper {
-  padding: 30px 60px 30px 60px;
+  padding: 30px 120px 30px 120px;
   display: flex;
   align-items: center;
   justify-content: space-between;

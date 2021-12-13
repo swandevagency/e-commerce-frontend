@@ -4,19 +4,25 @@
     <PhoneHeader class="phone-header" />
     <div class="home-page-wrapper">
       <section class="home-page-intro-wrapper">
-        <h6 class="home-page-intro">Start shopping with confidence</h6>
+        <h6 class="home-page-intro">{{ homePageIntro.first }}</h6>
+        <h6 class="home-page-intro hidden-intro">{{ homePageIntro.second }}</h6>
+        <h6 class="home-page-intro hidden-intro">{{ homePageIntro.third }}</h6>
       </section>
       <section class="site-news-wrapper">
         <SiteNews />
       </section>
       <section class="home-page-categories-wrapper">
-        <h1 class="home-page-categories-title">Categories</h1>
+        <h1 class="home-page-categories-title">
+          {{ homePageCategories.title }}
+        </h1>
         <div class="home-page-categories-container">
           <HomePageCategories />
         </div>
       </section>
       <section class="home-page-new-products-wrapper">
-        <h1 class="home-page-new-products-title">New products</h1>
+        <h1 class="home-page-new-products-title">
+          {{ homePageNewProducts.title }}
+        </h1>
         <div class="home-page-new-products-container">
           <NewProducts />
         </div>
@@ -30,7 +36,23 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      homePageIntro: {
+        first: 'Start shopping with confidence',
+        second: 'asdlkfj lsadkfj safaklsdj aasdfl',
+        third: 'alsdkjflskd sdlkajf salkdf jsdlaf',
+      },
+      homePageCategories: {
+        title: 'Categories',
+      },
+      homePageNewProducts: {
+        title: 'New products',
+      },
+    }
+  },
+}
 </script>
 
 <style>
@@ -44,6 +66,9 @@ export default {}
 .home-page-intro-wrapper {
   text-align: center;
   margin-top: 60px;
+}
+.hidden-intro {
+  display: none;
 }
 .home-page-intro {
   font-weight: 300;
@@ -79,6 +104,9 @@ export default {}
 @media only screen and (min-width: 992px) {
   .home-page-intro-wrapper {
     margin-top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
   .desktop-header {
     display: initial;
@@ -87,7 +115,10 @@ export default {}
     display: none;
   }
   .home-page-wrapper {
-    padding: 60px;
+    padding: 60px 120px 60px 120px;
+  }
+  .hidden-intro {
+    display: inherit;
   }
   .home-page-intro {
     font-size: 1.3em;

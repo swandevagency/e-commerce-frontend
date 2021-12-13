@@ -2,16 +2,28 @@
   <div>
     <div class="site-news">
       <h6 class="first-news">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+        {{ news.first }}
       </h6>
-      <h1 class="off">80% off</h1>
-      <h6 class="second-news">+ new arrivals just added</h6>
+      <h1 class="off">{{ off.description }}</h1>
+      <h6 class="second-news">{{ news.second }}</h6>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      news: {
+        first: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.',
+        second: '+ new arrivals just added',
+      },
+      off: {
+        description: '80% off',
+      },
+    }
+  },
+}
 </script>
 
 <style lang="scss">
@@ -36,13 +48,18 @@ export default {}
   margin-top: 12px;
 }
 @media only screen and (min-width: 992px) {
+  .site-news {
+    padding: 60px;
+  }
   .first-news {
     font-size: 2em;
   }
   .off {
     font-size: 2.6em;
+    margin-top: 30px;
   }
   .second-news {
+    margin-top: 30px;
     font-size: 2em;
   }
 }

@@ -2,34 +2,40 @@
   <div>
     <div class="home-page-categories">
       <div class="men-categories-container">
-        <div class="category-image">
-          <img
-            src="~/static/2b6c4edd120d4abf5cb3802b27803cc3.jpg"
-            alt="men"
-            class="men-categories"
-          />
-        </div>
-        <p class="img-title">Men</p>
+        <NuxtLink to="/Men"
+          ><div class="category-image">
+            <img
+              src="~/static/2b6c4edd120d4abf5cb3802b27803cc3.jpg"
+              alt="men"
+              class="men-categories"
+            />
+          </div>
+          <p class="img-title">Men</p></NuxtLink
+        >
       </div>
       <div class="kids-categories-container">
-        <div class="category-image">
-          <img
-            src="~/static/3f81d737885523ad36664901be9c965f.jpg"
-            alt="kids"
-            class="kids-categories"
-          />
-        </div>
-        <p class="img-title">Kids</p>
+        <NuxtLink to="/Kids">
+          <div class="category-image">
+            <img
+              src="~/static/3f81d737885523ad36664901be9c965f.jpg"
+              alt="kids"
+              class="kids-categories"
+            />
+          </div>
+          <p class="img-title">Kids</p>
+        </NuxtLink>
       </div>
       <div class="women-categories-container">
-        <div class="category-image">
-          <img
-            src="~/static/8906d69193f200fe019f84dd3db06a28.jpg"
-            alt="women"
-            class="women-categories"
-          />
-        </div>
-        <p class="img-title">Women</p>
+        <NuxtLink to="/Women">
+          <div class="category-image">
+            <img
+              src="~/static/8906d69193f200fe019f84dd3db06a28.jpg"
+              alt="women"
+              class="women-categories"
+            />
+          </div>
+          <p class="img-title">Women</p>
+        </NuxtLink>
       </div>
     </div>
   </div>

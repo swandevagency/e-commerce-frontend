@@ -9,7 +9,7 @@
               alt="T-shirt"
             />
           </div>
-          <p>T-shirt</p>
+          <p>{{ newProducts.first }}</p>
         </div>
         <div class="product">
           <div class="product-image">
@@ -18,7 +18,7 @@
               alt="Sneakers"
             />
           </div>
-          <p>Sneakers</p>
+          <p>{{ newProducts.second }}</p>
         </div>
         <div class="product">
           <div class="product-image">
@@ -27,7 +27,7 @@
               alt="Dress"
             />
           </div>
-          <p>Dress</p>
+          <p>{{ newProducts.third }}</p>
         </div>
         <div class="product">
           <div class="product-image">
@@ -36,7 +36,7 @@
               alt="Suit"
             />
           </div>
-          <p>Suit</p>
+          <p>{{ newProducts.fourth }}</p>
         </div>
       </div>
       <div class="view-more-wrapper">
@@ -47,7 +47,18 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      newProducts: {
+        first: 'T-shirt',
+        second: 'Sneakers',
+        third: 'Dress',
+        fourth: 'Suit',
+      },
+    }
+  },
+}
 </script>
 
 <style lang="scss">
