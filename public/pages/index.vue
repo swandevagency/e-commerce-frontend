@@ -78,7 +78,7 @@ export default {}
 
 @media only screen and (min-width: 992px) {
   .home-page-intro-wrapper {
-    margin-top: 0;
+    margin-top: 60px;
   }
   .desktop-header {
     display: initial;

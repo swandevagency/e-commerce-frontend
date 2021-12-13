@@ -84,6 +84,8 @@ a {
   align-items: center;
   justify-content: space-between;
   background-color: #eeedeb;
+  position: fixed;
+  width: 100%;
 }
 .pages-link-wrapper {
   width: 33%;
@@ -96,5 +98,15 @@ a {
   width: 15%;
   align-items: center;
   justify-content: space-around;
+}
+@media only screen and (min-width: 992px) {
+  .pages-link-wrapper {
+    margin-left: 90px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .pages-link-wrapper {
+    margin-left: 150px;
+  }
 }
 </style>
