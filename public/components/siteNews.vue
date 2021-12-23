@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="site-news">
-      <h6 class="first-news">
+      <h6 class="first-news" v-if="news.first">
         {{ news.first }}
       </h6>
-      <h1 class="off">{{ off.description }}</h1>
-      <h6 class="second-news">{{ news.second }}</h6>
+      <h1 class="off" v-if="off.description">{{ off.description }}</h1>
+      <h6 class="second-news" v-if="news.second">{{ news.second }}</h6>
     </div>
   </div>
 </template>

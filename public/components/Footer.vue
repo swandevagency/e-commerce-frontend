@@ -8,8 +8,8 @@
         <h1>Shop</h1>
         <div class="shop-categories-wrapper">
           <NuxtLink to="/Men">Men</NuxtLink>
-          <NuxtLink to="/Men">Women</NuxtLink>
-          <NuxtLink to="/Men">Kids</NuxtLink>
+          <NuxtLink to="/Women">Women</NuxtLink>
+          <NuxtLink to="/Kids ">Kids</NuxtLink>
         </div>
       </div>
       <div class="contact-us-container">

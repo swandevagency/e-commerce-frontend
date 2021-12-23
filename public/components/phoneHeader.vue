@@ -99,10 +99,10 @@
           />
         </svg>
         <div class="navbar-wrapper">
-          <h1>Home</h1>
-          <h1>Men</h1>
-          <h1>Women</h1>
-          <h1>Kids</h1>
+          <NuxtLink to="/">Home</NuxtLink>
+          <NuxtLink to="/category/Men">Men</NuxtLink>
+          <NuxtLink to="/category/Women">Women</NuxtLink>
+          <NuxtLink to="/category/Kids">Kids</NuxtLink>
         </div>
       </div>
     </div>
@@ -154,7 +154,9 @@ export default {
 }
 .navbar-wrapper {
   text-align: center;
-  h1 {
+  display: flex;
+  flex-direction: column;
+  a {
     margin-top: 3em;
     font-size: 2em;
     font-weight: 400;

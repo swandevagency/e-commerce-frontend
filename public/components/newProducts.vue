@@ -9,7 +9,7 @@
               alt="T-shirt"
             />
           </div>
-          <p>{{ newProducts.first }}</p>
+          <p v-if="newProducts.first">{{ newProducts.first }}</p>
         </div>
         <div class="product">
           <div class="product-image">
@@ -18,7 +18,7 @@
               alt="Sneakers"
             />
           </div>
-          <p>{{ newProducts.second }}</p>
+          <p v-if="newProducts.second">{{ newProducts.second }}</p>
         </div>
         <div class="product">
           <div class="product-image">
@@ -27,7 +27,7 @@
               alt="Dress"
             />
           </div>
-          <p>{{ newProducts.third }}</p>
+          <p v-if="newProducts.third">{{ newProducts.third }}</p>
         </div>
         <div class="product">
           <div class="product-image">
@@ -36,7 +36,7 @@
               alt="Suit"
             />
           </div>
-          <p>{{ newProducts.fourth }}</p>
+          <p v-if="newProducts.fourth">{{ newProducts.fourth }}</p>
         </div>
       </div>
       <div class="view-more-wrapper">

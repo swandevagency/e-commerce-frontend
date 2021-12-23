@@ -2,7 +2,7 @@
   <div>
     <div class="home-page-categories">
       <div class="men-categories-container">
-        <NuxtLink to="/Men"
+        <NuxtLink to="/category/Men"
           ><div class="category-image">
             <img
               src="~/static/2b6c4edd120d4abf5cb3802b27803cc3.jpg"
@@ -14,7 +14,7 @@
         >
       </div>
       <div class="kids-categories-container">
-        <NuxtLink to="/Kids">
+        <NuxtLink to="/category/Kids">
           <div class="category-image">
             <img
               src="~/static/3f81d737885523ad36664901be9c965f.jpg"
@@ -26,7 +26,7 @@
         </NuxtLink>
       </div>
       <div class="women-categories-container">
-        <NuxtLink to="/Women">
+        <NuxtLink to="/category/Women">
           <div class="category-image">
             <img
               src="~/static/8906d69193f200fe019f84dd3db06a28.jpg"

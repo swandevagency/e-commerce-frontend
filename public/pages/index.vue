@@ -4,15 +4,21 @@
     <PhoneHeader class="phone-header" />
     <div class="home-page-wrapper">
       <section class="home-page-intro-wrapper">
-        <h6 class="home-page-intro">{{ homePageIntro.first }}</h6>
-        <h6 class="home-page-intro hidden-intro">{{ homePageIntro.second }}</h6>
-        <h6 class="home-page-intro hidden-intro">{{ homePageIntro.third }}</h6>
+        <h6 class="home-page-intro" v-if="homePageIntro.first">
+          {{ homePageIntro.first }}
+        </h6>
+        <h6 class="home-page-intro hidden-intro" v-if="homePageIntro.second">
+          {{ homePageIntro.second }}
+        </h6>
+        <h6 class="home-page-intro hidden-intro" v-if="homePageIntro.third">
+          {{ homePageIntro.third }}
+        </h6>
       </section>
       <section class="site-news-wrapper">
         <SiteNews />
       </section>
       <section class="home-page-categories-wrapper">
-        <h1 class="home-page-categories-title">
+        <h1 class="home-page-categories-title" v-if="homePageCategories.title">
           {{ homePageCategories.title }}
         </h1>
         <div class="home-page-categories-container">
@@ -20,7 +26,10 @@
         </div>
       </section>
       <section class="home-page-new-products-wrapper">
-        <h1 class="home-page-new-products-title">
+        <h1
+          class="home-page-new-products-title"
+          v-if="homePageNewProducts.title"
+        >
           {{ homePageNewProducts.title }}
         </h1>
         <div class="home-page-new-products-container">

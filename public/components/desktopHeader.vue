@@ -4,9 +4,9 @@
       <NuxtLink to="/">Shop</NuxtLink>
       <div class="pages-link-wrapper">
         <NuxtLink to="/">Home</NuxtLink>
-        <NuxtLink to="/Men">Men</NuxtLink>
-        <NuxtLink to="/Women">Women</NuxtLink>
-        <NuxtLink to="/Kids">Kids</NuxtLink>
+        <NuxtLink to="/category/Men">Men</NuxtLink>
+        <NuxtLink to="/category/Women">Women</NuxtLink>
+        <NuxtLink to="/category/Kids">Kids</NuxtLink>
       </div>
       <div class="svgs-wrapper">
         <svg
