@@ -7,9 +7,9 @@
       <div class="shop-container">
         <h1>Shop</h1>
         <div class="shop-categories-wrapper">
-          <NuxtLink to="/Men">Men</NuxtLink>
-          <NuxtLink to="/Women">Women</NuxtLink>
-          <NuxtLink to="/Kids ">Kids</NuxtLink>
+          <NuxtLink to="/Category/Men">Men</NuxtLink>
+          <NuxtLink to="/Category/Women">Women</NuxtLink>
+          <NuxtLink to="/Category/Kids ">Kids</NuxtLink>
         </div>
       </div>
       <div class="contact-us-container">

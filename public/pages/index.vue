@@ -4,33 +4,30 @@
     <PhoneHeader class="phone-header" />
     <div class="home-page-wrapper">
       <section class="home-page-intro-wrapper">
-        <h6 class="home-page-intro" v-if="homePageIntro.first">
-          {{ homePageIntro.first }}
+        <h6 class="home-page-intro">
+          {{ homepage.homePageIntro.first }}
         </h6>
-        <h6 class="home-page-intro hidden-intro" v-if="homePageIntro.second">
-          {{ homePageIntro.second }}
+        <h6 class="home-page-intro hidden-intro">
+          {{ homepage.homePageIntro.second }}
         </h6>
-        <h6 class="home-page-intro hidden-intro" v-if="homePageIntro.third">
-          {{ homePageIntro.third }}
+        <h6 class="home-page-intro hidden-intro">
+          {{ homepage.homePageIntro.third }}
         </h6>
       </section>
       <section class="site-news-wrapper">
         <SiteNews />
       </section>
       <section class="home-page-categories-wrapper">
-        <h1 class="home-page-categories-title" v-if="homePageCategories.title">
-          {{ homePageCategories.title }}
+        <h1 class="home-page-categories-title">
+          {{ homepage.homePageCategories.title }}
         </h1>
         <div class="home-page-categories-container">
           <HomePageCategories />
         </div>
       </section>
       <section class="home-page-new-products-wrapper">
-        <h1
-          class="home-page-new-products-title"
-          v-if="homePageNewProducts.title"
-        >
-          {{ homePageNewProducts.title }}
+        <h1 class="home-page-new-products-title">
+          {{ homepage.homePageNewProducts.title }}
         </h1>
         <div class="home-page-new-products-container">
           <NewProducts />
@@ -46,20 +43,11 @@
 
 <script>
 export default {
-  data() {
-    return {
-      homePageIntro: {
-        first: 'Start shopping with confidence',
-        second: 'asdlkfj lsadkfj safaklsdj aasdfl',
-        third: 'alsdkjflskd sdlkajf salkdf jsdlaf',
-      },
-      homePageCategories: {
-        title: 'Categories',
-      },
-      homePageNewProducts: {
-        title: 'New products',
-      },
-    }
+  data() {},
+  async asyncData({ store }) {
+    await store.dispatch('homepage/getHomepage')
+    const homepage = store.state.homepage.homepage
+    return { homepage }
   },
 }
 </script>

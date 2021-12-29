@@ -1,10 +1,18 @@
 <template>
   <div>
-    <div class="categories-container">
-      <div class="category-image-wrapper">
-        <img :src="category.src" alt="category-image" v-if="category.src" />
-      </div>
-      <p v-if="category.title">{{ category.title }}</p>
+    <div v-for="(subCategory, index) in subCategories" :key="index">
+      <NuxtLink :to="`/${subCategory.title}`">
+        <div class="categories-container">
+          <div class="category-image-wrapper">
+            <img
+              :src="subCategory.image.url"
+              :alt="subCategory.image.alt"
+              v-if="subCategory.image"
+            />
+          </div>
+          <p>{{ subCategory.title }}</p>
+        </div>
+      </NuxtLink>
     </div>
   </div>
 </template>
@@ -14,7 +22,7 @@ export default {
   data() {
     return {}
   },
-  props: ['category'],
+  props: ['subCategories'],
 }
 </script>
 <style lang="scss">

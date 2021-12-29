@@ -4,25 +4,21 @@
     <PhoneHeader class="phone-header" />
     <div class="category-wrapper">
       <section class="category-title">
-        <h1 v-if="title">{{ title }}</h1>
+        <h1>{{ category.title }}</h1>
       </section>
       <section class="site-news-wrapper">
         <SiteNews />
       </section>
       <section class="categories-information">
-        <h1 v-if="categoriesInformation.title">
-          {{ categoriesInformation.title }}
+        <h1>
+          {{ category.title }}
         </h1>
-        <p v-if="categoriesInformation.description">
-          {{ categoriesInformation.description }}
+        <p>
+          {{ category.description }}
         </p>
       </section>
       <section class="categories-wrapper">
-        <Categories
-          :category="category"
-          v-for="(category, index) in categories"
-          :key="index"
-        />
+        <Categories :subCategories="category.subCategories" />
       </section>
     </div>
     <Footer />
@@ -31,35 +27,10 @@
 
 <script>
 export default {
-  computed: {
-    categories() {
-      let categoriesData = null
-      switch (this.$route.params.id) {
-        case 'Men':
-          categoriesData = this.$store.state.categories.menCategory
-          break
-        case 'Women':
-          categoriesData = this.$store.state.categories.womenCategory
-          break
-        case 'Kids':
-          categoriesData = this.$store.state.categories.kidsCategory
-          break
-      }
-      return categoriesData
-    },
-  },
-  data() {
-    return {
-      categoriesInformation: {
-        title: 'Categories',
-        description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      },
-    }
-  },
-  asyncData({ route }) {
-    const title = route.params.id
-    return { title }
+  async asyncData({ store, route }) {
+    await store.dispatch('category/getCategory', route.params.id)
+    const category = store.state.category.category
+    return { category }
   },
 }
 </script>
