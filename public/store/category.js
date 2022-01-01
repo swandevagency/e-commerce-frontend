@@ -122,15 +122,15 @@ export const actions = {
       // const res = this.$axios.get(`/category/${categoryId}`);
       const data = {
         Men: {
-          title: 'alskdfjsd',
+          title: 'Men',
           description: 'lsadkfjsd',
         },
         Women: {
-          title: 'aksjfh',
+          title: 'Women',
           description: 'laskdfj',
         },
-        kids: {
-          title: 'alskdfjhs',
+        Kids: {
+          title: 'Kids',
           description: 'alskdfjsdf',
         },
       }

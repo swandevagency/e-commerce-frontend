@@ -18,7 +18,11 @@
         </p>
       </section>
       <section class="categories-wrapper">
-        <Categories :subCategories="subCategories" />
+        <Categories
+          :subCategory="subCategory"
+          v-for="subCategory in subCategories"
+          :key="subCategory.index"
+        />
       </section>
     </div>
     <Footer />
@@ -32,7 +36,7 @@ export default {
     await store.dispatch('category/getSubCategory', route.params.id)
     const category = store.state.category.category
     const subCategories = store.state.category.subCategories
-    console.log(subCategories)
+
     return { category, subCategories }
   },
 }
@@ -67,6 +71,10 @@ export default {
   margin-top: 35px;
 }
 .categories-wrapper {
-  display: flex;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 35px;
+  margin-top: 35px;
 }
 </style>

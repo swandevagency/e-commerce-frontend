@@ -1,10 +1,6 @@
 <template>
   <div>
-    <NuxtLink
-      :to="`/${subCategory.title}`"
-      v-for="subCategory in subCategories"
-      :key="subCategory.index"
-    >
+    <NuxtLink :to="`/search/${subCategory.title}`">
       <div class="categories-container">
         <div class="category-image-wrapper">
           <img
@@ -24,7 +20,7 @@ export default {
   data() {
     return {}
   },
-  props: ['subCategories'],
+  props: ['subCategory'],
 }
 </script>
 <style lang="scss">
@@ -33,15 +29,22 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: rgba($color: white, $alpha: 0.4);
+  border-radius: 3px;
+  p {
+    padding: 10px;
+  }
 }
 .category-image-wrapper {
-  width: 100px;
-  height: 100px;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 3px;
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: top;
+    border-radius: 3px;
   }
 }
 </style>
