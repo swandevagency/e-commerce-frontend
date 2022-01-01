@@ -18,7 +18,7 @@
         </p>
       </section>
       <section class="categories-wrapper">
-        <Categories :subCategories="category.subCategories" />
+        <Categories :subCategories="subCategories" />
       </section>
     </div>
     <Footer />
@@ -29,8 +29,11 @@
 export default {
   async asyncData({ store, route }) {
     await store.dispatch('category/getCategory', route.params.id)
+    await store.dispatch('category/getSubCategory', route.params.id)
     const category = store.state.category.category
-    return { category }
+    const subCategories = store.state.category.subCategories
+    console.log(subCategories)
+    return { category, subCategories }
   },
 }
 </script>
@@ -65,10 +68,5 @@ export default {
 }
 .categories-wrapper {
   display: flex;
-  flex-flow: wrap;
-  align-items: center;
-  justify-content: space-around;
-  margin-top: 35px;
-  gap: 35px;
 }
 </style>
