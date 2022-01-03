@@ -1,20 +1,22 @@
 <template>
   <div>
-    <div class="products-container">
-      <div class="product-image-wrapper">
-        <img
-          :src="product.image.src"
-          :alt="product.image.alt"
-          v-if="product.image"
-        />
-      </div>
-      <div class="product-description-container">
-        <p>{{ product.title }}</p>
-        <div class="price-fac-container">
-          <p>{{ product.price }}</p>
+    <NuxtLink :to="`/products/${product.title}`">
+      <div class="products-container">
+        <div class="product-image-wrapper">
+          <img
+            :src="product.image.src"
+            :alt="product.image.alt"
+            v-if="product.image"
+          />
+        </div>
+        <div class="product-description-container">
+          <p>{{ product.title }}</p>
+          <div class="price-fac-container">
+            <p>{{ product.price }}</p>
+          </div>
         </div>
       </div>
-    </div>
+    </NuxtLink>
   </div>
 </template>
 

@@ -4,7 +4,7 @@
     <PhoneHeader class="phone-header" />
     <div class="subCategory-page-wrapper">
       <section class="subCategory-title">
-        <h1>Dress</h1>
+        <h1>{{ this.$route.params.id }}</h1>
       </section>
       <section class="site-news-wrapper">
         <SiteNews />
@@ -68,7 +68,6 @@ export default {
   async asyncData({ store, route }) {
     await store.dispatch('Products/getProducts', route.params.id)
     const products = store.state.Products.products
-    console.log(products)
     return { products }
   },
 }

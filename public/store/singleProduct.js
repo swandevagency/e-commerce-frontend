@@ -1,15 +1,15 @@
 export const state = () => ({
-  products: [],
+  singleProduct: {},
 })
 
 export const mutations = {
-  setProducts: (state, products) => {
-    state.products = products
+  setSingleProduct: (state, singleProduct) => {
+    state.singleProduct = singleProduct
   },
 }
 
 export const actions = {
-  getProducts: async ({ commit }, subCategoryId) => {
+  getSingleProduct: async ({ commit }, productId) => {
     const products = [
       {
         image: {
@@ -336,9 +336,9 @@ export const actions = {
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
       },
     ]
-    const result = products.filter((item) => {
-      return item.subCategory === subCategoryId
+    const res = products.filter((item) => {
+      return item.title === productId
     })
-    commit('setProducts', result)
+    commit('setSingleProduct', res)
   },
 }
