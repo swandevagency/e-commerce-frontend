@@ -19,25 +19,25 @@
         <form>
           <input
             type="text"
-            placeholder="firstname"
+            placeholder="Firstname"
             class="edit-profile-input"
             v-model="editProfileForm.firstname"
           />
           <input
             type="text"
-            placeholder="lastname"
+            placeholder="Lastname"
             class="edit-profile-input"
             v-model="editProfileForm.lastname"
           />
           <input
             type="text"
-            placeholder="username"
+            placeholder="Username"
             class="edit-profile-input"
             v-model="editProfileForm.username"
           />
           <input
             type="password"
-            placeholder="password"
+            placeholder="Password"
             class="edit-profile-input"
             v-model="editProfileForm.password"
           />
@@ -61,7 +61,7 @@ export default {
   data() {
     return {
       showEditInfo: false,
-      massage: null,
+      massage: '',
       editProfileForm: {
         firstname: '',
         lastname: '',
@@ -107,7 +107,6 @@ export default {
           headers: { authorization: `Bearer ${token}` },
         })
         if (res.status === 200) {
-          console.log(res.data)
           location.reload()
         }
       } catch (error) {

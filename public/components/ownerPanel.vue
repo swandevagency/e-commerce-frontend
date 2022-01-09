@@ -16,9 +16,15 @@
         }}
       </p>
     </div>
-    <div class="eidt-profile-wrapper">
+    <section class="eidt-profile-wrapper">
       <EditProfile />
-    </div>
+    </section>
+    <section class="admin-management-wrapper">
+      <p>Admin management</p>
+      <div class="admin-management-component-container">
+        <AdminManagement />
+      </div>
+    </section>
   </div>
 </template>
 
@@ -44,5 +50,9 @@ export default {
 }
 .admin-lastname {
   font-size: 1.5em;
+}
+.admin-management-wrapper {
+  margin-top: 10px;
+  padding: 20px;
 }
 </style>

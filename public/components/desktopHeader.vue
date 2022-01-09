@@ -88,6 +88,8 @@ a {
   background-color: #eeedeb;
   position: fixed;
   width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 .pages-link-wrapper {
   width: 33%;
