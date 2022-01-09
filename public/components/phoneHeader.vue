@@ -135,6 +135,8 @@ export default {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 .phone-svgs-wrapper {
   width: 50%;

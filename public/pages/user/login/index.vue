@@ -20,7 +20,7 @@
               <input
                 type="checkbox"
                 id="login-as-admin"
-                v-model="loginInformation.loginAsAdmin"
+                v-model="loginInformation.logInAsAdmin"
               />
               <label for="login-as-admin">Login as admin</label>
             </div>
@@ -48,14 +48,14 @@ export default {
       loginInformation: {
         username: '',
         password: '',
-        loginAsAdmin: false,
+        logInAsAdmin: false,
       },
       massage: null,
     }
   },
   methods: {
     async submitLogin() {
-      const { username, password, loginAsAdmin } = this.loginInformation
+      const { username, password, logInAsAdmin } = this.loginInformation
       if (!username) {
         this.massage = 'Please enter your username'
         return
@@ -67,13 +67,14 @@ export default {
       const data = {
         username,
         password,
-        loginAsAdmin,
+        logInAsAdmin,
       }
       try {
         const res = await this.$axios.post('/login', data)
         if (res.status === 200) {
           localStorage.setItem('authToken', res.data.token)
-          console.log('ok')
+          localStorage.setItem('role', res.data.role)
+          this.$router.push('/user')
           console.log(res.data)
           this.massage = res.data.msg
         }
