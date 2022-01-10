@@ -42,6 +42,9 @@ export default {
     singleAdmin() {
       return this.$store.state.singleAdmin.singleAdmin
     },
+    admins() {
+      return this.$store.state.admins
+    },
   },
   async created() {
     try {
@@ -53,6 +56,7 @@ export default {
       }
       if (localStorage.getItem('role') === 'owner') {
         await this.$store.dispatch('singleAdmin/getSingleAdmin')
+        await this.$store.dispatch('admins/getAdmins')
       }
     } catch (error) {
       console.log(error)
