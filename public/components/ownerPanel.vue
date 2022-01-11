@@ -31,6 +31,24 @@
         <Admins class="admins-container" />
       </div>
     </section>
+    <section class="category-management-wrapper">
+      <p class="category-management-title">category managment</p>
+      <div class="category-management-container-component">
+        <CategoryManagement class="category-management-container" />
+      </div>
+    </section>
+    <section class="admin-panel-categories-wrapper">
+      <p class="admin-panel-categories-title">categories</p>
+      <div class="admin-panel-categories-container-component">
+        <AdminPanelCategories class="admin-panel-categories" />
+      </div>
+    </section>
+    <!-- <section class="subCategory-management-wrapper">
+      <p class="subCategory-management-wrapper">SubCategory management</p>
+      <div class="subCategory-management-container-component">
+        <SubCategoryManagement />
+      </div>
+    </section> -->
   </div>
 </template>
 
@@ -42,6 +60,9 @@ export default {
     },
     admins() {
       return this.$store.state.admins
+    },
+    categories() {
+      return this.$axios.state.categories.categories
     },
   },
 }
@@ -79,7 +100,23 @@ export default {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
-  margin-top: 20px;
-  margin-left: 20px;
+  margin: 20px;
+}
+.category-management-wrapper {
+  background-color: rgba($color: white, $alpha: 0.4);
+  padding: 20px;
+}
+.admin-panel-categories-wrapper {
+  padding: 20px;
+}
+.admin-panel-categories-title {
+  margin-bottom: 10px;
+}
+.admin-panel-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
 }
 </style>

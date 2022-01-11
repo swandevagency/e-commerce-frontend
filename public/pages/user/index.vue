@@ -45,6 +45,9 @@ export default {
     admins() {
       return this.$store.state.admins
     },
+    categories() {
+      return this.$store.state.categories.categories
+    },
   },
   async created() {
     try {
@@ -53,10 +56,12 @@ export default {
       }
       if (localStorage.getItem('role') === 'admin') {
         await this.$store.dispatch('singleAdmin/getSingleAdmin')
+        await this.$store.dispatch('categories/getCategories')
       }
       if (localStorage.getItem('role') === 'owner') {
         await this.$store.dispatch('singleAdmin/getSingleAdmin')
         await this.$store.dispatch('admins/getAdmins')
+        await this.$store.dispatch('categories/getCategories')
       }
     } catch (error) {
       console.log(error)
