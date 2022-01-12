@@ -78,7 +78,6 @@ export default {
     editForm(index = 0) {
       this.showEditForm = !this.showEditForm
       this.currentSelectedIndex = index
-      console.log(this.currentSelectedIndex)
       this.editAdminForm.firstname = ''
       this.editAdminForm.lastname = ''
       this.editAdminForm.username = ''
