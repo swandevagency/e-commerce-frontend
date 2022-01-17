@@ -43,12 +43,12 @@
         <AdminPanelCategories class="admin-panel-categories" />
       </div>
     </section>
-    <!-- <section class="subCategory-management-wrapper">
-      <p class="subCategory-management-wrapper">SubCategory management</p>
-      <div class="subCategory-management-container-component">
-        <SubCategoryManagement />
+    <section class="category-management-wrapper">
+      <p class="category-management-title">SubCategory management</p>
+      <div class="category-management-container-component">
+        <SubCategoryManagement class="category-management-container" />
       </div>
-    </section> -->
+    </section>
   </div>
 </template>
 
@@ -62,7 +62,7 @@ export default {
       return this.$store.state.admins
     },
     categories() {
-      return this.$axios.state.categories.categories
+      return this.$store.state.categories.categories
     },
   },
 }
