@@ -49,6 +49,12 @@
         <SubCategoryManagement class="category-management-container" />
       </div>
     </section>
+    <section class="admin-panel-categories-wrapper">
+      <p class="admin-panel-categories-title">SubCategories</p>
+      <div class="admin-panel-categories-container-component">
+        <AdminPanelSubCategories class="admin-panel-categories" />
+      </div>
+    </section>
   </div>
 </template>
 
@@ -63,6 +69,9 @@ export default {
     },
     categories() {
       return this.$store.state.categories.categories
+    },
+    subCategories() {
+      return this.$store.state.subCategories.subCategories
     },
   },
 }
