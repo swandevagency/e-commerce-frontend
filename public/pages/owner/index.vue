@@ -4,7 +4,7 @@
     <PhoneHeader class="phone-header" />
     <div class="user-page-wrapper">
       <section class="panel-wrapper">
-        <UserPanel />
+        <OwnerPanel />
       </section>
     </div>
     <Footer />
@@ -13,22 +13,19 @@
 
 <script>
 export default {
-  data() {
-    return {}
-  },
   mounted() {
     if (!localStorage.getItem('authToken')) {
       this.$router.push('/register')
     }
   },
   computed: {
-    singleUser() {
-      return this.$store.state.singleUser.singleUser
+    singleAdmin() {
+      return this.$store.state.singleAdmin.singleAdmin
     },
   },
   async created() {
     try {
-      await this.$store.dispatch('singleUser/getSingleUser')
+      await this.$store.dispatch('singleAdmin/getSingleAdmin')
     } catch (error) {
       console.log(error)
     }
@@ -36,12 +33,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.user-page-wrapper {
-  background-color: #e2c7c7;
-  min-height: 100vh;
-}
-.panel-wrapper {
-  margin-top: 68px;
-}
-</style>
+<style></style>

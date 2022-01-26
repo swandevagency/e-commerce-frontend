@@ -40,55 +40,55 @@
           />
           <label :for="category._id">{{ category.name }}</label>
         </div>
-        <div class="subcategory-buttons">
-          <button
-            class="submit-category-form"
-            @click.prevent="submitSubCategoryForm"
-          >
-            Submit
-          </button>
-          <button class="submit-category-form" @click.prevent="showAddFilter">
-            Add filter
-          </button>
-        </div>
-        <p>{{ this.massage }}</p>
-      </form>
-      <div class="add-filter-form-wrapper" v-if="showFilterForm">
-        <button class="submit-category-form" @click="showAddFilter">
+        <button
+          class="submit-category-form"
+          v-if="!showFilterForm"
+          @click.prevent="showAddFilter"
+        >
+          Add filter
+        </button>
+        <button
+          class="submit-category-form"
+          v-if="showFilterForm"
+          @click.prevent="showAddFilter"
+        >
           Cancel
         </button>
-        <form class="filter-form">
+        <form class="filter-form" v-if="showFilterForm">
           <div class="filter-input">
-            <input type="text" placeholder="Filter" v-model="key" />
+            <input
+              type="text"
+              placeholder="Filter"
+              v-model="filterName"
+              class="new-category-input"
+            />
           </div>
           <div class="value-input">
-            <input type="text" placeholder="value" v-model="value" />
-            <button class="add-value-button" @click.prevent="addValue">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                x="0px"
-                y="0px"
-                width="50"
-                height="50"
-                viewBox="0 0 24 24"
-                style="fill: #000000"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z"
-                ></path>
-              </svg>
+            <input
+              type="text"
+              placeholder="value"
+              v-model="value"
+              class="new-category-input"
+            />
+            <button class="submit-category-form" @click.prevent="addValue">
+              Add value
             </button>
           </div>
           <button
             class="submit-category-form"
             @click.prevent="submitFilterForm"
           >
-            Submit
+            Add new filter
           </button>
-          <p>{{ this.massage }}</p>
         </form>
-      </div>
+        <button
+          class="submit-category-form"
+          @click.prevent="submitSubCategoryForm"
+        >
+          Submit
+        </button>
+        <p>{{ this.massage }}</p>
+      </form>
     </div>
   </div>
 </template>
@@ -101,11 +101,11 @@ export default {
       showButton: false,
       currentSelectedIndex: 0,
       massage: '',
-      key: '',
+      filterName: '',
       value: '',
       filtersForm: {
-        key: '',
-        values: [],
+        filterName: '',
+        filterValidValues: [],
       },
       subCategoryInfo: {
         categoryId: '',
@@ -121,20 +121,20 @@ export default {
   },
   methods: {
     submitFilterForm() {
-      if (this.key && this.filtersForm.values.length > 0) {
-        this.filtersForm.key = this.key
+      if (this.filterName && this.filtersForm.filterValidValues.length > 0) {
+        this.filtersForm.filterName = this.filterName
         this.subCategoryInfo.filters.push(this.filtersForm)
-        this.filtersForm = { key: '', values: [] }
-        this.key = ''
+        this.filtersForm = { filterName: '', filterValidValues: [] }
+        this.filterName = ''
         this.showFilterForm = false
         console.log(this.subCategoryInfo.filters)
       }
     },
     addValue() {
       if (this.value) {
-        this.filtersForm.values.push(this.value)
+        this.filtersForm.filterValidValues.push(this.value)
         this.value = ''
-        console.log(this.filtersForm.values)
+        console.log(this.filtersForm.filterValidValues)
         this.massage = 'value added'
       } else {
         this.massage = 'type value'
@@ -194,38 +194,9 @@ export default {
 .subcategory-form {
   align-items: initial;
 }
-.add-filter-form-wrapper {
-  position: fixed;
-  backdrop-filter: blur(30px);
-  height: 100vh;
-  width: 100%;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
 .filter-form {
   display: flex;
   flex-direction: column;
-}
-.value-input {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-.add-value-button {
-  width: 22px;
-  height: 22px;
-  position: absolute;
-  left: calc(100% - 22px);
-  background: #e2c7c7;
-  border: none;
-  svg {
-    width: 100%;
-    height: 100%;
-  }
+  margin-top: 20px;
 }
 </style>

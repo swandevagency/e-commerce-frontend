@@ -27,7 +27,7 @@
           </form>
           <p class="login-router">
             Already have an acount?
-            <nuxt-link to="/user/login">Login</nuxt-link>
+            <nuxt-link to="/login">Login</nuxt-link>
           </p>
           <p class="massage" v-if="this.massage">{{ this.massage }}</p>
         </div>
@@ -78,7 +78,7 @@ export default {
         .then((res) => {
           if (res.status === 200) {
             this.massage = 'successfully registered'
-            this.$router.push('/user/login')
+            this.$router.push('/login')
           }
         })
         .catch((e) => {
