@@ -53,6 +53,26 @@ export default {
       massage: null,
     }
   },
+  mounted() {
+    if (
+      localStorage.getItem('authToken') &&
+      localStorage.getItem('role') === 'owner'
+    ) {
+      this.$router.push('/owner')
+    }
+    if (
+      localStorage.getItem('authToken') &&
+      localStorage.getItem('role') === 'admin'
+    ) {
+      this.$router.push('/admin')
+    }
+    if (
+      localStorage.getItem('authToken') &&
+      localStorage.getItem('role') === 'user'
+    ) {
+      this.$router.push('/user')
+    }
+  },
   methods: {
     async submitLogin() {
       const { username, password, logInAsAdmin } = this.loginInformation

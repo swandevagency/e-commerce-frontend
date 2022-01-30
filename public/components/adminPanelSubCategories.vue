@@ -29,7 +29,10 @@
               />
             </svg>
           </button>
-          <button class="edit-filter">
+          <button
+            class="edit-filter"
+            @click="editFilter(filter._id, subCategory._id)"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -51,6 +54,7 @@
         </div>
       </div>
       <div class="admin-panel-controls-wrapper">
+        <button @click="addNewFilter(subCategory._id)">Add new filter</button>
         <button @click="deleteSubCategory(index)">Delete</button>
         <button @click="editForm(index)">Edit</button>
       </div>
@@ -91,6 +95,67 @@
         <p>{{ this.massage }}</p>
       </form>
     </div>
+    <div class="edit-form-wrapper" v-if="showEditFilterForm">
+      <form class="edit-subCategory">
+        <button @click.prevent="editFilter()" class="submit-category-form">
+          cancel
+        </button>
+        <div class="filter-input">
+          <input
+            type="text"
+            placeholder="FilterName"
+            v-model="editFilterValues.filterName"
+            class="new-category-input"
+          />
+          <div class="value-input">
+            <input
+              type="text"
+              placeholder="Value"
+              v-model="validValue"
+              class="new-category-input"
+            />
+            <button class="submit-category-form" @click.prevent="addEditValue">
+              add value
+            </button>
+          </div>
+          <button
+            class="submit-category-form"
+            @click.prevent="submitEditFilter"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="edit-form-wrapper" v-if="showAddNewFilter">
+      <form class="edit-subCategory">
+        <button @click.prevent="addNewFilter" class="submit-category-form">
+          Cancel
+        </button>
+        <div class="filter-input">
+          <input
+            type="text"
+            placeholder="FilterName"
+            v-model="editFilterValues.filterName"
+            class="new-category-input"
+          />
+          <div class="value-input">
+            <input
+              type="text"
+              placeholder="value"
+              v-model="validValue"
+              class="new-category-input"
+            />
+            <button class="submit-category-form" @click.prevent="addEditValue">
+              add value
+            </button>
+          </div>
+          <button class="submit-category-form" @click.prevent="submitNewFilter">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -101,6 +166,15 @@ export default {
       massage: '',
       showEditForm: false,
       currentSelectedIndex: 0,
+      showEditFilterForm: false,
+      showAddNewFilter: false,
+      validValue: '',
+      editFilterId: '',
+      editSubCategoryId: '',
+      editFilterValues: {
+        filterName: '',
+        filterValidValues: [],
+      },
       editSubCategory: {
         name: '',
         categoryId: '',
@@ -116,6 +190,87 @@ export default {
     },
   },
   methods: {
+    addNewFilter(subCategoryId) {
+      this.showAddNewFilter = !this.showAddNewFilter
+      this.editSubCategoryId = subCategoryId
+      this.editFilterValues.filterName = ''
+      this.editFilterValues.filterValidValues = []
+    },
+    addEditValue() {
+      if (this.validValue) {
+        this.editFilterValues.filterValidValues.push(this.validValue)
+        this.validValue = ''
+        console.log(this.editFilterValues)
+      }
+    },
+    editFilter(filterId, subCategoryId) {
+      this.showEditFilterForm = !this.showEditFilterForm
+      this.editFilterId = filterId
+      this.editSubCategoryId = subCategoryId
+    },
+    async submitEditFilter() {
+      const idFilter = this.editFilterId
+      const id = this.editSubCategoryId
+      const { filterName, filterValidValues } = this.editFilterValues
+      if (!filterName) {
+        console.log('nist')
+        return
+      }
+      if (!filterValidValues) {
+        console.log('nistesh')
+        return
+      }
+      const data = {
+        filterName,
+        filterValidValues,
+      }
+      const token = localStorage.getItem('authToken')
+      try {
+        const res = await this.$axios({
+          method: 'put',
+          url: `${id}/${idFilter}`,
+          data: data,
+          headers: { authorization: `Bearer ${token}` },
+        })
+        if (res.status === 200) {
+          location.reload()
+        }
+      } catch (error) {
+        console.log(error)
+        console.log(error.response.data.msg)
+      }
+    },
+    async submitNewFilter() {
+      const id = this.editSubCategoryId
+      const { filterName, filterValidValues } = this.editFilterValues
+      if (!filterName) {
+        console.log('nist')
+        return
+      }
+      if (!filterValidValues) {
+        console.log('nistesh')
+        return
+      }
+      const token = localStorage.getItem('authToken')
+      const data = {
+        filterName,
+        filterValidValues,
+      }
+      try {
+        const res = await this.$axios({
+          method: 'post',
+          url: `${id}/newfilter`,
+          data: data,
+          headers: { authorization: `Bearer ${token}` },
+        })
+        if (res.status === 200) {
+          location.reload()
+        }
+      } catch (error) {
+        console.log(error)
+        console.log(error.response.data.msg)
+      }
+    },
     async deleteFilter(filterId, subCategoryId) {
       const idFilter = filterId
       const id = subCategoryId
