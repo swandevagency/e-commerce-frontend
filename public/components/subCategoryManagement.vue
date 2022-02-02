@@ -25,9 +25,9 @@
           class="new-category-input"
           v-model="subCategoryInfo.name"
         />
-        <p>Please chose a category</p>
+        <p>Please choose a category</p>
         <div
-          class="chose-category-wrapper"
+          class="choose-category-wrapper"
           v-for="(category, index) in categories.categories"
           :key="index"
         >

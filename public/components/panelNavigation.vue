@@ -11,6 +11,9 @@
           >SubCategory Managment</nuxt-link
         >
       </li>
+      <li>
+        <nuxt-link to="/owner/productManagment">Product managment</nuxt-link>
+      </li>
     </ul>
   </div>
 </template>
