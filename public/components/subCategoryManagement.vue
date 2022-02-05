@@ -84,6 +84,7 @@
         <button
           class="submit-category-form"
           @click.prevent="submitSubCategoryForm"
+          v-if="!showFilterForm"
         >
           Submit
         </button>
