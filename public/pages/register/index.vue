@@ -55,17 +55,14 @@ export default {
       const emailRegex = /\S+@\S+\.\S+/
       if (!email || !emailRegex.test(email)) {
         this.massage = 'Please provide a valid email address'
-        console.log('1')
         return
       }
       if (!username) {
         this.massage = 'Please enter your user name.'
-        console.log('2')
         return
       }
       if (!password) {
         this.massage = 'Please enter your password.'
-        console.log('3')
         return
       }
       const data = {

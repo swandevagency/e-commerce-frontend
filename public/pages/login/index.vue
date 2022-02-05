@@ -91,21 +91,21 @@ export default {
       }
       try {
         const res = await this.$axios.post('/login', data)
-        if (res.status === 200 && (res.data.role = 'user')) {
+        if (res.status === 200 && res.data.role === 'user') {
           localStorage.setItem('authToken', res.data.token)
           localStorage.setItem('role', res.data.role)
           this.$router.push('/user')
           console.log(res.data)
           this.massage = res.data.msg
         }
-        if (res.status === 200 && (res.data.role = 'admin')) {
+        if (res.status === 200 && res.data.role === 'admin') {
           localStorage.setItem('authToken', res.data.token)
           localStorage.setItem('role', res.data.role)
           this.$router.push('/admin')
           console.log(res.data)
           this.massage = res.data.msg
         }
-        if (res.status === 200 && (res.data.role = 'owner')) {
+        if (res.status === 200 && res.data.role === 'owner') {
           localStorage.setItem('authToken', res.data.token)
           localStorage.setItem('role', res.data.role)
           this.$router.push('/owner')
